@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\DmsTaskChallenge.Infrastructure\DmsTaskChallenge.Repository.csproj" />
+    <ProjectReference Include="..\DmsTaskChallenge.Repository\DmsTaskChallenge.Repository.csproj" />
   </ItemGroup>
 
 </Project>

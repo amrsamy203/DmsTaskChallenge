@@ -18,8 +18,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\DmsTaskChallenge.Application\DmsTaskChallenge.Services.csproj" />
-		<ProjectReference Include="..\DmsTaskChallenge.Infrastructure\DmsTaskChallenge.Repository.csproj" />
+		<ProjectReference Include="..\DmsTaskChallenge.Services\DmsTaskChallenge.Services.csproj" />
+		<ProjectReference Include="..\DmsTaskChallenge.Repository\DmsTaskChallenge.Repository.csproj" />
 	</ItemGroup>
 
 </Project>

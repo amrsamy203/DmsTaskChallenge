@@ -1,12 +1,12 @@
-﻿using DmsChallenge.Repository.Repositories.Base;
+﻿using DmsTaskChallenge.Repository.Repositories.Base;
 using DmsTaskChallenge.Repository.Data;
-using DmsTaskChallenge.Repository.Repositories.Base;
 using DmsTaskChallenge.Services.Implementation;
 using DmsTaskChallenge.Services.Interface;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
+using DmsChallenge.Repository.Repositories.Base;
 
 namespace DmsTaskChallenge.API
 {
