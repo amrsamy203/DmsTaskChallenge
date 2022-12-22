@@ -14,6 +14,6 @@ namespace DmsTaskChallenge.Domain.DTOs
         [Required]
         public int Price { get; set; }
         [Required]
-        public Uom Uom { get; set; }
+        public int UomId { get; set; }
     }
 }
