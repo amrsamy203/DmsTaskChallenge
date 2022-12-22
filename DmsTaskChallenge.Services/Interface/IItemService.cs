@@ -8,7 +8,7 @@ namespace DmsTaskChallenge.Services.Interface
 {
     public interface IItemService
     {
-        IReadOnlyList<ItemResponseDTO> GetItems();
+        List<ItemResponseDTO> GetItems();
         ItemResponseDTO GetItem(int id);
         void InsertItem(ItemRequestDTO item);
         void UpdateItem(Item item);

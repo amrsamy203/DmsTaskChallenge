@@ -8,7 +8,7 @@ namespace DmsTaskChallenge.Services.Interface
 {
     public interface IUomService
     {
-        IReadOnlyList<UomResponseDTO> GetUoms();
+        List<UomResponseDTO> GetUoms();
         UomResponseDTO GetUomById(int id);
         void InsertUom(UomRequestDTO uom);
         void UpdateUom(Uom uom);

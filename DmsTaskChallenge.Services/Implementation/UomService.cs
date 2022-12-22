@@ -4,6 +4,7 @@ using DmsTaskChallenge.Domain.Entities;
 using DmsTaskChallenge.Repository.Repositories.Base;
 using DmsTaskChallenge.Services.Interface;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace DmsTaskChallenge.Services.Implementation
 {
@@ -29,10 +30,9 @@ namespace DmsTaskChallenge.Services.Implementation
             return _mapper.Map<UomResponseDTO>(uom);
         }
 
-        public IReadOnlyList<UomResponseDTO> GetUoms()
+        public List<UomResponseDTO> GetUoms()
         {
-            var uoms =  _uomRepository.GetAll();
-            return (IReadOnlyList<UomResponseDTO>)_mapper.Map<UomResponseDTO>(uoms);
+            return _uomRepository.GetAll().Select(u => _mapper.Map<UomResponseDTO>(u)).ToList();
         }
 
         public void InsertUom(UomRequestDTO uomRequestDTO)

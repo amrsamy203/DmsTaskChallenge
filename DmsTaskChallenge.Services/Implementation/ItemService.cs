@@ -4,6 +4,7 @@ using DmsTaskChallenge.Domain.Entities;
 using DmsTaskChallenge.Repository.Repositories.Base;
 using DmsTaskChallenge.Services.Interface;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace DmsTaskChallenge.Services.Implementation
 {
@@ -28,10 +29,9 @@ namespace DmsTaskChallenge.Services.Implementation
             return _mapper.Map<ItemResponseDTO>(item);
         }
 
-        public IReadOnlyList<ItemResponseDTO> GetItems()
+        public List<ItemResponseDTO> GetItems()
         {
-            var items =  _itemRepository.GetAll();
-            return (IReadOnlyList<ItemResponseDTO>)_mapper.Map<ItemResponseDTO>(items);
+            return _itemRepository.GetAll().Select(i => _mapper.Map<ItemResponseDTO>(i)).ToList();
         }
 
         public void InsertItem(ItemRequestDTO itemRequestDTO)
