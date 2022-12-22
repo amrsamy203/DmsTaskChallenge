@@ -42,7 +42,7 @@ namespace DmsChallenge.Repository.Repositories.Base
             
         }
 
-        public IReadOnlyList<T> GetAll()
+        public List<T> GetAll()
         {
             try
             {
