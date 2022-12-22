@@ -1,3 +1,5 @@
+using AutoMapper;
+using DmsTaskChallenge.Domain;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -9,6 +11,7 @@ using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 
 namespace DmsTaskChallenge.API
@@ -27,6 +30,7 @@ namespace DmsTaskChallenge.API
         {
             services.AddControllers();
             services.AddAppCollection(Configuration);
+            services.AddApplicationCore(Configuration);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

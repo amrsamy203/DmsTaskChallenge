@@ -7,6 +7,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
 using DmsChallenge.Repository.Repositories.Base;
+using AutoMapper;
+using System;
 
 namespace DmsTaskChallenge.API
 {
@@ -25,6 +27,7 @@ namespace DmsTaskChallenge.API
             services.AddTransient<IUomService, UomService>();
             #endregion
 
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
             #region resolve the context 
             services.AddDbContext<DmsTaskChallengeContext>(options =>

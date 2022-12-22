@@ -1,4 +1,5 @@
-﻿using DmsTaskChallenge.Domain.Entities;
+﻿using DmsTaskChallenge.Domain.DTOs;
+using DmsTaskChallenge.Domain.Entities;
 using DmsTaskChallenge.Services.Interface;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
@@ -42,10 +43,10 @@ namespace DmsTaskChallenge.API.Controllers
 
         // POST api/<ItemsController>
         [HttpPost(nameof(InsertItem))]
-        public IActionResult InsertItem(Item item)
+        public IActionResult InsertItem(ItemRequestDTO itemRequestDTO)
         {
-            if(item == null) return BadRequest();
-            _itemService.InsertItem(item);
+            if(itemRequestDTO == null) return BadRequest();
+            _itemService.InsertItem(itemRequestDTO);
             return Ok("Data inserted");
         }
 
