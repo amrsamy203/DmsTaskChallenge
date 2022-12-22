@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 
-namespace DmsTaskChallenge.Domain.Entities
+namespace DmsTaskChallenge.Domain.DTOs
 {
-    public class Uom
+    public class UomResponseDTO
     {
-        public int Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
     }
