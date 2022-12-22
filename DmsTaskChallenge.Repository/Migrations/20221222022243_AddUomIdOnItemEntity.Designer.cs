@@ -3,14 +3,16 @@ using DmsTaskChallenge.Repository.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DmsTaskChallenge.Repository.Migrations
 {
     [DbContext(typeof(DmsTaskChallengeContext))]
-    partial class DmsTaskChallengeContextModelSnapshot : ModelSnapshot
+    [Migration("20221222022243_AddUomIdOnItemEntity")]
+    partial class AddUomIdOnItemEntity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
