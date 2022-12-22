@@ -1,4 +1,6 @@
-﻿using DmsTaskChallenge.Domain.Entities;
+﻿using AutoMapper;
+using DmsTaskChallenge.Domain.DTOs;
+using DmsTaskChallenge.Domain.Entities;
 using DmsTaskChallenge.Repository.Repositories.Base;
 using DmsTaskChallenge.Services.Interface;
 using System.Collections.Generic;
@@ -8,9 +10,11 @@ namespace DmsTaskChallenge.Services.Implementation
     public class ItemService : IItemService
     {
         private readonly IRepository<Item> _itemRepository;
-        public ItemService(IRepository<Item> itemRepository)
+        private readonly IMapper _mapper;
+        public ItemService(IRepository<Item> itemRepository, IMapper mapper)
         {
             _itemRepository = itemRepository;
+            _mapper = mapper;
         }
         public void DeleteItem(int id)
         {
@@ -18,18 +22,21 @@ namespace DmsTaskChallenge.Services.Implementation
             _itemRepository.Delete(item);
         }
 
-        public Item GetItem(int id)
+        public ItemResponseDTO GetItem(int id)
         {
-            return _itemRepository.GetById(id);
+            var item = _itemRepository.GetById(id);
+            return _mapper.Map<ItemResponseDTO>(item);
         }
 
-        public IReadOnlyList<Item> GetItems()
+        public IReadOnlyList<ItemResponseDTO> GetItems()
         {
-            return _itemRepository.GetAll();
+            var items =  _itemRepository.GetAll();
+            return (IReadOnlyList<ItemResponseDTO>)_mapper.Map<ItemResponseDTO>(items);
         }
 
-        public void InsertItem(Item item)
+        public void InsertItem(ItemRequestDTO itemRequestDTO)
         {
+            var item = _mapper.Map<Item>(itemRequestDTO);
             _itemRepository.Add(item);
         }
 

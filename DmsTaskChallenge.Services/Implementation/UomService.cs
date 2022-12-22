@@ -1,4 +1,6 @@
-﻿using DmsTaskChallenge.Domain.Entities;
+﻿using AutoMapper;
+using DmsTaskChallenge.Domain.DTOs;
+using DmsTaskChallenge.Domain.Entities;
 using DmsTaskChallenge.Repository.Repositories.Base;
 using DmsTaskChallenge.Services.Interface;
 using System.Collections.Generic;
@@ -8,9 +10,11 @@ namespace DmsTaskChallenge.Services.Implementation
     public class UomService : IUomService
     {
         private readonly IRepository<Uom> _uomRepository;
-        public UomService(IRepository<Uom> uomRepository)
+        private readonly IMapper _mapper;
+        public UomService(IRepository<Uom> uomRepository, IMapper mapper)
         {
             _uomRepository = uomRepository;
+            _mapper = mapper;
         }
 
         public void DeleteUom(int id)
@@ -19,18 +23,21 @@ namespace DmsTaskChallenge.Services.Implementation
             _uomRepository.Delete(uom);
         }
 
-        public Uom GetUomById(int id)
+        public UomResponseDTO GetUomById(int id)
         {
-            return _uomRepository.GetById(id);
+            var uom =  _uomRepository.GetById(id);
+            return _mapper.Map<UomResponseDTO>(uom);
         }
 
-        public IReadOnlyList<Uom> GetUoms()
+        public IReadOnlyList<UomResponseDTO> GetUoms()
         {
-            return _uomRepository.GetAll();
+            var uoms =  _uomRepository.GetAll();
+            return (IReadOnlyList<UomResponseDTO>)_mapper.Map<UomResponseDTO>(uoms);
         }
 
-        public void InsertUom(Uom uom)
+        public void InsertUom(UomRequestDTO uomRequestDTO)
         {
+            var uom = _mapper.Map<Uom>(uomRequestDTO);
             _uomRepository.Add(uom);
         }
 
